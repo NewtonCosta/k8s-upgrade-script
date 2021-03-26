@@ -15,7 +15,7 @@
 
 ```bash
 #!/bin/bash
-# Upgrading K8s Control plane to latest stable 1.20 version
+# Upgrading K8s Control plane to latest stable 1.20.0 version
 # Author:    Newton Costa
 # Repo:      github.com/NewtonCosta/k8s-cp-upgrade-script
 # Create on: 2021-03-26
