@@ -25,6 +25,8 @@
 # Global variables
 NODE_NAME=${1:-$HOSTNAME}
 KUBEADM_VERSION="1.20.2"
+KUBELET_VERSION="1.20.2-00"
+KUBECTL_VERSION=${KUBELET_VERSION}
 
 echo -e "Starting upgrade...\n"
 
@@ -51,7 +53,7 @@ echo
 #
 # Upgrade kubelet and kubectl
 echo -e "> Upgrading kubelet and kubectl\n"
-sudo apt-mark unhold kubelet kubectl && sudo apt-get update && sudo apt-get install -y kubelet="${KUBEADM_VERSION}-00"  kubectl="${KUBEADM_VERSION}-00"  && sudo apt-mark hold kubelet kubectl
+sudo apt-mark unhold kubelet kubectl && sudo apt-get update && sudo apt-get install -y kubelet="${KUBELET_VERSION}"  kubectl="${KUBECTL_VERSION}"  && sudo apt-mark hold kubelet kubectl
 echo
 #
 # Restarting the kubelet
@@ -64,6 +66,7 @@ kubectl uncordon ${NODE_NAME}
 
 #
 echo -e "\nControl plane ${HOSTNAME} \e[32msuccessfuly\e[0m upgraded\n"
+
 ```
 <hr>
 
