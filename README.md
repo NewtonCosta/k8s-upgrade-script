@@ -70,11 +70,9 @@ echo -e "\nControl plane ${HOSTNAME} \e[32msuccessfuly\e[0m upgraded\n"
 ```
 <hr>
 
-### _Example: upgrading k8s control plane to latest stable 1.20 version_
-
-
-
 **Note:** After upgrade procedure all containers are restarted, because the container spec hash value is changed.
+
+
 
 
 [Official documentation](https://kubernetes.io/docs/tasks/administer-cluster/kubeadm/kubeadm-upgrade/)
