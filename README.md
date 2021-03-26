@@ -16,6 +16,7 @@
 >  5. Upgrade kubelet and kubectl on the control node
 >  6. Uncordon the control plane node
 
+<hr>
 
 ### _Example: upgrading k8s control plane to latest stable 1.20 version_
 
