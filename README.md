@@ -23,7 +23,7 @@
 #!/bin/bash
 # Upgrading K8s Control plane to latest stable 1.20 version
 # Author:    Newton Costa
-# Repo:      github.com/NewtonCosta/k8s-cp-upgrade-script
+# Repo:      github.com/NewtonCosta/k8s-upgrade-script
 # Create on: 2021-03-26
 
 # NOTE: The upgrade procedure on control plane nodes should be executed one node at a time. 
