@@ -8,13 +8,6 @@
 > - [Swap must be disabled](https://serverfault.com/questions/684771/best-way-to-disable-swap-in-linux)
 > - It's recommended to determine which version to upgrade to, check the procedure [here](https://kubernetes.io/docs/tasks/administer-cluster/kubeadm/kubeadm-upgrade/#determine-which-version-to-upgrade-to)
 
-> **To perform upgrade to k8 control plane, this script follow these steps:**
->  1. Drain the control plane node
->  2. Upgrade Kubeadm on the contol plane node
->  3. Plan the upgrade (kubeadm upgrade plan)
->  4. Apply the upgrade (kubeadm upgrade apply)
->  5. Upgrade kubelet and kubectl on the control node
->  6. Uncordon the control plane node
 
 <hr>
 
@@ -73,9 +66,11 @@ echo
 echo -e "Control plane ${HOSTNAME} \e[32msuccessfuly\e[0m upgraded"
 
 ```
+<hr>
 
+### _Example: upgrading k8s control plane to latest stable 1.20 version_
 
-
+[Official documentation: ](https://kubernetes.io/docs/tasks/administer-cluster/kubeadm/kubeadm-upgrade/)
 
 
 
