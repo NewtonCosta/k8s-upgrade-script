@@ -77,7 +77,7 @@ echo -e "\nControl plane ${HOSTNAME} \e[32msuccessfuly\e[0m upgraded\n"
 **Note:** After upgrade procedure all containers are restarted, because the container spec hash value is changed.
 
 
-[Official documentation: ](https://kubernetes.io/docs/tasks/administer-cluster/kubeadm/kubeadm-upgrade/)
+[Official documentation](https://kubernetes.io/docs/tasks/administer-cluster/kubeadm/kubeadm-upgrade/)
 
 
 
