@@ -1,16 +1,14 @@
-
 #!/bin/bash
 # Upgrading K8s Control plane to latest stable 1.20 version
 # Author:    Newton Costa
 # Repo:      github.com/NewtonCosta/k8s-cp-upgrade-script
 # Create on: 2021-03-26
 
-# NOTE: The upgrade procedure on control plane nodes should be executed one node at a time. 
-#       Pick a control plane node that you wish to upgrade first
+# NOTE: The upgrade procedure on control plane nodes should be executed one node at a time. Pick a control plane node that you wish to upgrade first
 
 # Global variables
 NODE_NAME=${1:-$HOSTNAME}
-KUBEADM_VERSION="1.20.2-00"
+KUBEADM_VERSION="1.20.2"
 
 echo -e "Starting upgrade...\n"
 
@@ -22,21 +20,22 @@ echo
 #
 # Upgrading Kubeadm and showing the new version
 echo -e "> Upgrading kubeadm...\n"
-sudo apt-mark unhold kubeadm && sudo apt-get update && sudo apt-get install -y kubeadm=${KUBEADM_VERSION} && sudo apt-mark hold kubeadm
+sudo apt-mark unhold kubeadm && sudo apt-get update && sudo apt-get install -y kubeadm="${KUBEADM_VERSION}-00" && sudo apt-mark hold kubeadm
 echo  "Upgraded to version: `sudo kubeadm version`"
 echo
 #
 # Verifying upgrade plan
 echo -e "> Checking upgrade plan...\n"
-sudo kubeadm upgrade plan ${KUBEADM_VERSION}
+sudo kubeadm upgrade plan "v${KUBEADM_VERSION}"
 #
 # Applying the upgrade
 echo -e "> Aplying the upgrade ignoring automatic certificate renewal...\n"
-sudo kubeadm upgrade apply ${KUBEADM_VERSION} --certificate-renewal=false
+sudo kubeadm upgrade apply "v${KUBEADM_VERSION}" --certificate-renewal=false --yes
+echo
 #
 # Upgrade kubelet and kubectl
 echo -e "> Upgrading kubelet and kubectl\n"
-sudo apt-mark unhold kubelet kubectl && sudo apt-get update && sudo apt-get install -y kubelet=${KUBEADM_VERSION}  kubectl=${KUBEADM_VERSION}  && sudo apt-mark hold kubelet kubectl
+sudo apt-mark unhold kubelet kubectl && sudo apt-get update && sudo apt-get install -y kubelet="${KUBEADM_VERSION}-00"  kubectl="${KUBEADM_VERSION}-00"  && sudo apt-mark hold kubelet kubectl
 echo
 #
 # Restarting the kubelet
@@ -46,6 +45,6 @@ echo -e "daemon reloaded and kubelet restarted\n"
 # Uncordoning the node
 echo -e "> Bring the node back online by marking it schedulable...\n"
 kubectl uncordon ${NODE_NAME}
-echo
+
 #
-echo -e "Control plane ${HOSTNAME} \e[32msuccessfuly\e[0m upgraded"
+echo -e "\nControl plane ${HOSTNAME} \e[32msuccessfuly\e[0m upgraded\n"
