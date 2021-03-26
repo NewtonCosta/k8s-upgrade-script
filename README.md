@@ -1,9 +1,9 @@
 # Upgrading K8s Control Plane and Workers via Bash Sript
 
 > ### Before begin upgrade:
-> - Make sure you read the release notes carefully.
-> - The cluster should use a static control plane and etcd pods or external etcd.
-> - Make sure to back up any important components, such as app-level state stored in a database.
+> - Make sure you read the release notes carefully
+> - The cluster should use a static control plane and etcd pods or external etcd
+> - Make sure to back up any important components, such as app-level state stored in a database
 > _kubeadm upgrade does not touch your workloads, only components internal to Kubernetes, but backups are always a best practice._
 > - [Swap must be disabled](https://serverfault.com/questions/684771/best-way-to-disable-swap-in-linux)
 > - It's recommended to determine which version to upgrade to, check the procedure [here](https://kubernetes.io/docs/tasks/administer-cluster/kubeadm/kubeadm-upgrade/#determine-which-version-to-upgrade-to)
