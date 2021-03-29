@@ -8,7 +8,7 @@
 > - [Swap must be disabled](https://serverfault.com/questions/684771/best-way-to-disable-swap-in-linux)
 > - It's recommended to determine which version to upgrade to, check the procedure [here](https://kubernetes.io/docs/tasks/administer-cluster/kubeadm/kubeadm-upgrade/#determine-which-version-to-upgrade-to)
 
-### Installation
+### Usage
 1. just copy the file [_k8-cp-upgrade.sh_](https://github.com/NewtonCosta/k8s-upgrade-script/blob/main/k8-cp-upgrade.sh) to your machine
 2. Change permission ``` chown +x k8-cp-upgrade.sh ```
 
